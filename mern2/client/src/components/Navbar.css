@@ -1,0 +1,87 @@
+/* Navbar background */
+.navbar {
+  background-color: #e8dfdf;
+  padding: 10px;
+}
+
+/* Logo */
+.navbar-brand img {
+  max-width: 100px;
+  height: auto;
+}
+
+/* Navbar items */
+.navbar-nav .nav-link {
+  color: #333;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+/* Active link */
+.navbar-nav .nav-link.active {
+  color: #000;
+}
+
+.navbar-toggler-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  background-color: #f5f5f5;
+  border: none;
+}
+
+.dropdown-item {
+  color: #333;
+  font-weight: 600;
+}
+
+.dropdown-item:hover {
+  background-color: #ebebeb;
+}
+
+@media (max-width: 992px) {
+  /* Styles for screens up to 992px wide */
+  .navbar {
+    padding: 5px;
+  }
+  
+  .navbar-brand img {
+    max-width: 80px;
+  }
+  
+  .navbar-nav .nav-link {
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Styles for screens up to 768px wide */
+  .navbar-toggler-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .navbar-nav .nav-link {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Styles for screens up to 576px wide */
+  .navbar-brand img {
+    max-width: 60px;
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 14px;
+  }
+}
