@@ -132,27 +132,32 @@ router.get('/getdata',authenticate,(req,res)=>{
 
 //contact us page
 
-router.post('/contact',authenticate,async (req,res)=>{
-     try{
-         const {name,email,phone,message}=req.body;
-
-         if(!name || !email || !phone || !message){
-            console.log("error in contact form");
-         return res.json({error:"plzz filled the contact form"});
-         const userContact= await User.findOne({_id:req.userID});
-         if(userContact){
-            const userMessage= await userContact.addMessage(name,email,phone,message);
-
-            await userContact.save();
-
-            res.status(201).json({message:"user Contact Successfully"});
-         }
-         }
-     }catch(err){
-console.log(err);
-     }
-        });
-
+router.post('/contact', authenticate, async (req, res) => {
+    try {
+      const { name, email, phone, message } = req.body;
+  
+      if (!name || !email || !phone || !message) {
+        console.log("error in contact form");
+        return res.json({ error: "Please fill the contact form" });
+      }
+  
+      const userContact = await User.findOne({ _id: req.userID });
+  
+      if (userContact) {
+        userContact.name = name;
+        userContact.email = email;
+        userContact.phone = phone;
+        userContact.message = message;
+  
+        await userContact.save();
+  
+        return res.status(201).json({ message: "User contact saved successfully" });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  });
+  
 
         //logout ka page
 
